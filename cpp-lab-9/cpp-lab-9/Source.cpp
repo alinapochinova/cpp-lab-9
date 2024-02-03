@@ -11,22 +11,32 @@ int countElements(T* arr, int size, F condition) {
     return count;
 }
 
+int f1(int num) {
+    return num > 2;
+}
+
+double f2(double num) {
+    return num < 3.0;
+}
+
+char f3(char ch) {
+    return ch != 'a';
+}
 int main() {
-    // Примеры использования функции
 
     // Массив целых чисел
     int intArr[] = { 1, 2, 3, 4, 5 };
-    int intCount = countElements(intArr, 5, [](int num) { return num > 2; });
+    int intCount = countElements(intArr, 5, *f1);
     std::cout << "Number of elements greater than 2: " << intCount << std::endl;
 
     // Массив чисел с плавающей запятой
     double doubleArr[] = { 1.5, 2.7, 3.2, 4.1, 5.9 };
-    int doubleCount = countElements(doubleArr, 5, [](double num) { return num < 3.0; });
+    int doubleCount = countElements(doubleArr, 5, *f2);
     std::cout << "Number of elements less than 3.0: " << doubleCount << std::endl;
     
     // Массив символов
     char charArr[] = { 'a', 'b', 'c', 'd', 'e' };
-    int charCount = countElements(charArr, 5, [](char ch) { return ch != 'a'; });
+    int charCount = countElements(charArr, 5, *f3);
     std::cout << "Number of elements not equal to 'a': " << charCount << std::endl;
 
     return 0;
